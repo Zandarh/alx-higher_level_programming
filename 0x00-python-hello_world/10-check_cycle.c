@@ -1,4 +1,6 @@
 #include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 
 /**
@@ -9,19 +11,20 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *sloth = list;
-	listin_t *ant = list;
+	listint_t *sloth, *ant;
 
-	if (!list)
+	if (!list || !list->next)
 		return (0);
 
-	
+	slot = ant = list;
+	slot = sloth->next;
+	ant = ant->next-next;
 	while (sloth && ant && ant->next)
 	{
-		sloth = sloth->next;
-		ant = ant->next;
 		if (sloth == ant)
 			return (1);
+		sloth = sloth->next;
+		ant = ant->next;
 	}
 	return (0);
-}
+
