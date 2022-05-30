@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 /**
  * check_cycle - checks a list for a loop
  *
@@ -11,20 +10,20 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *sloth, *ant;
+	listint_t *slow, *fast;
 
 	if (!list || !list->next)
 		return (0);
 
-	slot = ant = list;
-	slot = sloth->next;
-	ant = ant->next-next;
-	while (sloth && ant && ant->next)
+	slow = fast = list;
+	slow = slow->next;
+	fast = fast->next->next;
+	while (slow && fast && fast->next)
 	{
-		if (sloth == ant)
+		if (slow == fast)
 			return (1);
-		sloth = sloth->next;
-		ant = ant->next;
+		slow = slow->next;
+		fast = fast->next->next;
 	}
 	return (0);
-
+}
