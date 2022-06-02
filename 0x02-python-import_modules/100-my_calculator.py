@@ -16,9 +16,8 @@ if __name__ == "__main__":
         if sys.argv[2] == '+':
             print("{:d} {} {:d} = {:d}".format(a, operators[0], b, add(a, b)))
         elif sys.argv[2] == '-':
-            print("{:d} {} {:d} = {:d}".format(a, operators[1], b, sub(a, b) ))
+            print("{:d} {} {:d} = {:d}".format(a, operators[1], b, sub(a, b)))
         elif sys.argv[2] == '*':
-            print("{:d} {} {:d} = {:d}".format(a, operators[2], b, mul(a, b) ))	
+            print("{:d} {} {:d} = {:d}".format(a, operators[2], b, mul(a, b)))
         else:
-            print("{:d} {} {:d} = {:d}".format(a, opeartors[3], b, div(a, b) ))	
-            
+            print("{:d} {} {:d} = {:d}".format(a, opeartors[3], b, div(a, b)))
