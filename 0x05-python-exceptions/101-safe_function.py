@@ -12,11 +12,8 @@ def safe_function(fct, *args):
     try:
         result = fct(*args)
         return result
-    except TypeError as error:
-        print("Exceptions: {}".format(error), file=stderr)
-    except IndexError as ind:
-        print("Exceptions: {}".format(ind), file=stderr)
-    except ZeroDivisionError as zer:
-        print("Exceptions: {}".format(zer), file=stderr)
-    except ValueError as var:
-        print("Exceptions: {}".format(var), file=stderr)
+    except Exception as error:
+        print("Exception: {}".format(error), file=stderr)
+        return None
+    else:
+        return result
