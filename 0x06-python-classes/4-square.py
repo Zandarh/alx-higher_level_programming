@@ -13,12 +13,12 @@ class Square:
         self.size = size
 
         @property
-        def size(cls):
+        def size(self):
             """ Gets the attribute to be used in a class """
             return self.__size
 
         @size.setter
-        def size(cls, value):
+        def size(self, value):
             if type(value) is not int:
                 raise TypeError("size must be an integer")
             elif size < 0:
