@@ -14,7 +14,7 @@ class Square:
         self.size = size
 
     @property
-    def size(cls):
+    def size(self):
         """ Gets the attribute to be used in class """
         return self.__size
 
