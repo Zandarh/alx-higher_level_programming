@@ -71,3 +71,4 @@ class Square:
                     number += 1
                 print()
                 integer += 1
+                print()
