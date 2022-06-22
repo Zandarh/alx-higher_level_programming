@@ -13,7 +13,7 @@ class Square:
             size (int): The size of a new square.
         """
 
-        if typee(size) is not int:
+        if type(size) is not int:
             raise TypeError("size must be an integer")
         elif size < 0:
             raise ValueError("size must be >=0")
