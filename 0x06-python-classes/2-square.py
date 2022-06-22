@@ -4,16 +4,16 @@
 
 
 class Square:
-    """Represent a square."""
+    """Declares a square class"""
 
     def __init__(self, size=0):
-        """initialize a new square.
+        """initialize  class attribute.
 
         Args:
             size (int): The size of a new square.
         """
 
-        if not isinstance(size, int):
+        if typee(size) is not int:
             raise TypeError("size must be an integer")
         elif size < 0:
             raise ValueError("size must be >=0")
