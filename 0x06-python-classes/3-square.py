@@ -6,7 +6,7 @@
 class Square:
     """Represent a square."""
 
-    def __init__(self, size=0) -> None:
+    def __init__(self, size=0):
         """initialize a new square.
 
         Args:
@@ -21,4 +21,4 @@ class Square:
 
 def area(self):
     """Return the current area of the square"""
-    return (self.__size * self.__size)
+    return (self.__size ** 2)
