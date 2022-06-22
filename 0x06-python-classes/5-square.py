@@ -43,4 +43,4 @@ class Square:
                     print("{}".format("#"), end='')
                     num == 1
                 print()
-                int =+ 1
+                int += 1

@@ -49,25 +49,28 @@ class Square:
         """ Computes area of a square """
         return self.__size ** 2
 
-    def my_print(self):
+    def __str__(self):
         """ Prints in stdout the square with the character # """
+        output = list()
         if self.__size == 0:
-            print()
+            return "\n"
         else:
             integer = 0
             pos1, pos2 = self.__position
             for new_line in range(pos2):
-                print()
+                output.append("\n")
             while integer < self.__size:
 
                 j = 0
                 while j < pos1:
-                    print(" ", end='')  # replace position with space
+                    output.append(" ")  # replace position with space
                     j += 1
 
                 number = 0
                 while number < self.__size:
-                    print("{}".format("#"), end='')
+                    output.append("#")
                     number += 1
-                print()
+                if integer + 1 != self.__size:
+                    output.append("\n")
                 integer += 1
+            return "".join(output)
