@@ -6,7 +6,7 @@
 class Rectangle:
     """ Represent a square """
 
-    def __init__(self, height=0, width=0):
+    def __init__(self, width=0, height=0):
         """
             Initialization of the Rectangle class
 
@@ -14,9 +14,9 @@ class Rectangle:
                 width: width of the rectangle
                 height: height of the rectangle
         """
-        self.__height = height
-        self.__width = width
-
+        self.width = width
+        self.height = height
+        
     @property
     def width(self):
         return self.__width
