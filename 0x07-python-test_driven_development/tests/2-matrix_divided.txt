@@ -1,0 +1,93 @@
+"""
+The ``2-matrix_divided`` module
+"""
+
+importing ``matrix_divided`` from the module
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+def matrix_divided(matrix, div):
+""" A function that divides an element of a matrix witha give number.
+    Args: matrix: The matrix, div: denominator
+    Return: Returns a new matrix """
+
+
+We'd test:
+::
+
+    >>> matrix = [
+    ...    [4, 4],
+    ...    [4, 79.3]
+    ... ]
+    >>> print(matrix_divided(matrix, 2))
+    [[2.0, 2.0], [2.0, 39.65]]
+
+The answers are rounded up to 2-decimal plases
+
+::
+
+With floating point numbers
+    >>> matrix = [
+    ...   [3.5, 33.7],
+    ...   [4, -4]
+    ... ]
+    >>> print(matrix_divided(matrix, 2))
+    [[1.75, 16.85], [2.0, -2.0]]
+
+::
+
+with a string in the matrix
+    >>> matrix = [
+    ...    [3.5, 'y'], 
+    ...    [4, -4]
+    ... ]
+    >>> print(matrix_divided(matrix, 2))
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+
+With a matrix[row] or different length
+    >>> matrix = [
+    ...    [3.5, 6, 7], 
+    ...    [4, -4]
+    ... ]
+    >>> print(matrix_divided(matrix, 2))
+    Traceback (most recent call last):
+        ...
+    TypeError: Each row of the matrix must have the same size
+
+::
+
+Division by 0
+    >>> matrix = [
+    ...    [3.5, 6], 
+    ...    [4, -4]
+    ... ]
+    >>> print(matrix_divided(matrix, 0))
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero
+
+::
+
+Division by a non-number
+    >>> matrix = [
+    ...    [3.5, 6], 
+    ...    [4, -4]
+    ... ]
+    >>> print(matrix_divided(matrix, 'g'))
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+::
+
+An Empty list
+
+    >>> matrix = []
+    >>> print(matrix_divided(matrix, 2))
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
