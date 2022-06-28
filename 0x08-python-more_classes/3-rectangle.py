@@ -6,7 +6,7 @@
 class Rectangle:
     """ This is a rectangle class """
 
-    def __int__(self, width=0, height=0):
+    def __init__(self, width=0, height=0):
         """
             Initialization of the Rectangle class
 
@@ -16,6 +16,21 @@ class Rectangle:
         """
         self.width = width
         self.height = height
+
+    def __str__(self):
+        """
+            return string representation of the rectangle
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ("")
+
+        length = list()
+        for row in range(self.__height):
+            for column in range(self.__width):
+                length.append('#')
+            if row + 1 != self.__height:
+                length.append('\n')
+        return ''.join(length)
 
     @property
     def width(self):
@@ -63,16 +78,3 @@ class Rectangle:
             return (0)
         else:
             return (2 * (self.__width + self.__height))
-
-    def __str__(self):
-        """
-            return string representation of the rectangle
-        """
-        if self.__width == 0 or self.__height == 0:
-            return ("")
-
-        lenght = list()
-        for row in range(self.__height):
-            for column in range(self.__width):
-                lenght.aappend("#")
-        return lenght
