@@ -48,6 +48,20 @@ class TestMaxInteger(unittest.TestCase):
         """Test for if list is empty"""
 
         self.assertIsNone(max_integer([]))
+    
+    def test_strings(self):
+        """
+            Checks if function can give the highest string
+        """
+        self.assertEqual(max_integer(['arid', 'Aert', 'rain', 'mad']), 'rain')
+        self.assertEqual(max_integer('zebra'), 'z')
+
+    def test_list_of_one_element(self):
+        """
+            Checks if a list with one element returns a result
+        """
+        self.assertEqual(max_integer([5]), 5)
+
 
     def test_if_no_arg_received(self):
         """Test if no arguement is given"""
