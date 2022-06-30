@@ -126,3 +126,14 @@ An Empty list
     Traceback (most recent call last):
         ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+An inifite number
+    >>> a = float(-inf)
+    >>> matrix = [
+    ...     [1, 2, 3],
+    ...     [1, 2, 3]
+    ... ]
+    >>> print(matrix_divided(matrix, a))
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
