@@ -20,14 +20,14 @@ We'd test:
 ::
 
 When both arguments are strings
-    >>> say_my_name("Alex", "Ubaka")
-    My name is Alex Ubaka
+    >>> say_my_name("Ubaka")
+    My name is Ubaka 
 
 ::
 
 When last_name is not given, only first name
     >>> say_my_name("Alex")
-    My name is Alex
+    My name is Alex 
 
 ::
 
