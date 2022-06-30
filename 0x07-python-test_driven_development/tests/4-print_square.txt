@@ -57,6 +57,14 @@ when size is a set
 
 ::
 
+when size is < that 0
+    >>> print_square(-2)
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be >= 0
+
+::
+
 when no arguement is give
     >>> print_square()
     Traceback (most recent call last):
