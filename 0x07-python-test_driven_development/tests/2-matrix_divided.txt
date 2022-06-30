@@ -54,7 +54,7 @@ with a string in the matrix
     >>> print(matrix_divided(matrix, 2))
     Traceback (most recent call last):
         ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    TypeError: unsupported operand type(s) for /: 'str' and 'int'
 
 ::
 
@@ -72,7 +72,7 @@ with one argument missing
 
 with no argument given
     >>> matrix = [
-    ...    [3.5, 'y'], 
+    ...    [3.5, 4], 
     ...    [4, -4]
     ... ]
     >>> print(matrix_divided())
@@ -85,7 +85,8 @@ with no argument given
 With a matrix[row] or different length
     >>> matrix = [
     ...    [3.5, 6, 7], 
-    ...    [4, -4]
+    ...    [4, -4],
+    ...    [5]
     ... ]
     >>> print(matrix_divided(matrix, 2))
     Traceback (most recent call last):
