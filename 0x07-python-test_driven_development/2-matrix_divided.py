@@ -9,33 +9,33 @@ def matrix_divided(matrix, div):
         Args: Matrix, and div and the denominator
         Return: Returns a new matrix
     """
+    prev_len = 0
+    list_error = "matrix must be a matrix (list of lists) of integers/floats"
+    if type(matrix) is not list:
+        raise TypeError(list_error)
 
-    if not isinstance(matrix, list):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+    for row in matrix:
+        if matrix == []:
+            raise TypeError(list_error)
 
-    if (matrix == []):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+        if type(row) is not list:
+            raise TypeError(list_error)
 
-    if not (isinstance(row, list) for row in matrix):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+        for column in row: 
+            if type(column) is not int and type(column) is not float:
+                raise TypeError(list_error)
 
-    if not (isinstance(column, int) for column in [num for row in matrix for num in row]):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+        if len(row) != prev_len and prev_len != 0:
+            raise TypeError("Each row of the matrix must have the same size")
+        prev_len = len(row)
 
-    if not (isinstance(column, float) for column in [num for row in matrix for num in row]):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+    if type(div) is not int and type(div) is not float:
+            raise TypeError("div must be a number")
 
-    if not (isinstance(column, float) for column in [num for row in matrix for num in row]):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-
-    if not (len(row) == len(matrix[1]) for row in matrix):
-        raise TypeError("Each row of the matrix must have the same size")
-
-    if not isinstance(div, int) and not isinstance(div, float):
-        raise TypeError("div must be a number")
+    if div == float('inf'):
+        raise TypeError("div must be a number")        
 
     if (div == 0):
         raise ZeroDivisionError("division by zero")
 
-    new_matrix = ([list(map(lambda column: round(column / div, 2), row)) for row in matrix])
-    return (new_matrix)
+    return [[round(column / div, 2) for column in row] for row in matrix]

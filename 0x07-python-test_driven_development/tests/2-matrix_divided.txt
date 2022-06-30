@@ -47,14 +47,11 @@ With all values as integers and div as a floating point number
 ::
 
 with a string in the matrix
-    >>> matrix = [
-    ...    [3.5, 'y'], 
-    ...    [4, -4]
-    ... ]
-    >>> print(matrix_divided(matrix, 2))
+     >>> matrix = [[1, 2, 3], "Alex", "yeah"]
+    >>> matrix_divided(matrix, 4)
     Traceback (most recent call last):
         ...
-    TypeError: unsupported operand type(s) for /: 'str' and 'int'
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 ::
 
@@ -108,10 +105,7 @@ Division by 0
 ::
 
 Division by a non-number
-    >>> matrix = [
-    ...    [3.5, 6], 
-    ...    [4, -4]
-    ... ]
+    >>> matrix = [[3.5, 6],[4, -4]]
     >>> print(matrix_divided(matrix, 'g'))
     Traceback (most recent call last):
         ...
@@ -123,12 +117,10 @@ An Empty list
 
     >>> matrix = []
     >>> print(matrix_divided(matrix, 2))
-    Traceback (most recent call last):
-        ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    []
 
 An inifite number
-    >>> a = float(-inf)
+    >>> a = float('inf')
     >>> matrix = [
     ...     [1, 2, 3],
     ...     [1, 2, 3]
@@ -136,4 +128,4 @@ An inifite number
     >>> print(matrix_divided(matrix, a))
     Traceback (most recent call last):
         ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    TypeError: div must be a number
