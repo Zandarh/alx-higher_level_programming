@@ -33,7 +33,7 @@ def matrix_divided(matrix, div):
         raise TypeError("div must be a number")
 
     if div == float('inf'):
-        raise TypeError("div must be a number")    
+        raise TypeError("div must be a number")
 
     if (div == 0):
         raise ZeroDivisionError("division by zero")
