@@ -21,7 +21,7 @@ def matrix_divided(matrix, div):
         if type(row) is not list:
             raise TypeError(list_error)
 
-        for column in row: 
+        for column in row:
             if type(column) is not int and type(column) is not float:
                 raise TypeError(list_error)
 
@@ -30,10 +30,10 @@ def matrix_divided(matrix, div):
         prev_len = len(row)
 
     if type(div) is not int and type(div) is not float:
-            raise TypeError("div must be a number")
+        raise TypeError("div must be a number")
 
     if div == float('inf'):
-        raise TypeError("div must be a number")        
+        raise TypeError("div must be a number")    
 
     if (div == 0):
         raise ZeroDivisionError("division by zero")
