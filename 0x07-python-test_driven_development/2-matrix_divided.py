@@ -32,7 +32,7 @@ def matrix_divided(matrix, div):
     if type(div) is not int and type(div) is not float:
         raise TypeError("div must be a number")
 
-    if div == float('inf'):
+    if div == float('inf'): # checking for +ve or -ve infinite numbers
         raise TypeError("div must be a number")
 
     if (div == 0):
