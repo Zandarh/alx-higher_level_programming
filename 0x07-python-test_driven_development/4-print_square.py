@@ -4,13 +4,14 @@
     The print square module
 """
 
+
 def print_square(size):
     """
         prints a squar with the character #
-        
+
         Args:
             size: The lenght of the square
-            
+
         Return: Returns the square
     """
     if isinstance(size, int) is False:

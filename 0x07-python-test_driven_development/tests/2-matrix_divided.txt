@@ -36,6 +36,16 @@ With floating point numbers
 
 ::
 
+With all values as integers and div as a floating point number
+    >>> matrix = [
+    ...   [3.5, 33.7],
+    ...   [4, -4]
+    ... ]
+    >>> print(matrix_divided(matrix, 2.0))
+    [[1.75, 16.85], [2.0, -2.0]]
+
+::
+
 with a string in the matrix
     >>> matrix = [
     ...    [3.5, 'y'], 
@@ -45,6 +55,30 @@ with a string in the matrix
     Traceback (most recent call last):
         ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+
+with one argument missing
+    >>> matrix = [
+    ...    [3.5, 'y'], 
+    ...    [4, -4]
+    ... ]
+    >>> print(matrix_divided(matrix))
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+::
+
+with no argument given
+    >>> matrix = [
+    ...    [3.5, 'y'], 
+    ...    [4, -4]
+    ... ]
+    >>> print(matrix_divided())
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
 
 ::
 

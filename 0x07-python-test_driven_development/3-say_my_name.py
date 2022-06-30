@@ -4,14 +4,15 @@
     Print my name module
 """
 
+
 def say_my_name(first_name, last_name=""):
     """
         Function prints my namae in first name, last name basis
-    
+
         Args:
             first_name: The fist name
             last_naame: The last name
-        
+
         Return: the full name
     """
     if not isinstance(first_name, str):
