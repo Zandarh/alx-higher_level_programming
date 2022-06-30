@@ -40,3 +40,19 @@ for strings as one argument
     Traceback (most recent call last):
         ...
     TypeError: b must be an integer
+
+if b is NaN
+    >>> a = float("nan")
+    >>> b = 3
+    >>> add_integer(b, a)
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+if a is NaN
+    >>> a = float("nan")
+    >>> b = 3
+    >>> add_integer(a, b)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
