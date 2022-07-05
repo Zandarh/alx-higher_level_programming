@@ -37,4 +37,17 @@ Testing ``MyList`` class
     >>> print(my_list)
     [1, 4, 2, 3, 5, 8]
 
-    -
+    - Create a list from a list
+    >>> my_list = MyList([1, 2, 3])
+    >>> print(my_list)
+    [1, 2, 3]
+
+- Create a list from a tuple
+    >>> my_list = MyList((1, 2, 3))
+    >>> print(my_list)
+    [1, 2, 3]
+
+- Create a list from a string
+    >>> my_list = MyList("Betty")
+    >>> print(my_list)
+    ['B', 'e', 't', 't', 'y']
