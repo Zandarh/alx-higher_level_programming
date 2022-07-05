@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    6-base_geometry module
+    7-base_geometry module
 """
 
 
@@ -22,10 +22,12 @@ class BaseGeometry:
                 name: The name
                 Value: The value to be validated
 
-            Return: True or False
+            Raises:
+                TypeError: when value is not an integer
+                ValueError: when value is less than 0
         """
-        if not (isinstance(value, int)):
-            raise TypeError(f"{name} must be an integer")
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+
         if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
-        return True
+            raise ValueError("{} must be greater than 0".format(name))
