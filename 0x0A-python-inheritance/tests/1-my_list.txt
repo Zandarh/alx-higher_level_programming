@@ -1,0 +1,40 @@
+The ``1-my_list`` module
+=================================
+
+Testing ``MyList`` class
+-----------------------------------
+
+[*] Import function from the module
+    >>> MyList = __import__('1-my_list').MyList
+
+[*] Define a `MyList` object
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+
+[*] Usage `print_sorted` function
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+[*] Checking my `print_sorted` function
+    - passing on argument
+    >>> my_list.print_sorted(2)
+    Traceback (most recent call last):
+        ...
+    TypeError: print_sorted() takes 1 positional argument but 2 were given
+
+[*] Checking if my list works like a list by using different in-built lists methods
+    >>> my_list.extend([8, 9])
+    >>> print(my_list)
+    [1, 4, 2, 3, 5, 8, 9]
+
+    - using the `pop` methods
+    >>> print(my_list.pop())
+    9
+    >>> print(my_list)
+    [1, 4, 2, 3, 5, 8]
+
+    -
