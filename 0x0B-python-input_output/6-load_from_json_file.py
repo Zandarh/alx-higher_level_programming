@@ -12,6 +12,5 @@ def load_from_json_file(filename):
         Args:
             filename: The name of the file
     """
-    with open(filename, mode='w', encoding='utf-8') as file:
-        answer = js.load(file)
-    return answer
+    with open(filename, encoding='utf-8') as file:
+        return js.load(file) # serializes object into file
