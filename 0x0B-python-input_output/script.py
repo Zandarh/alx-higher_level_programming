@@ -1,2 +1,3 @@
-with open('test.txt') as my_file:
-    print(my_file.readlines())
+with open('test.txt', mode='r+') as my_file:
+    text = my_file.write('hey, it\' me!')
+    print(text)
