@@ -14,4 +14,4 @@ def save_to_json_file(my_obj, filename):
             filename: the text file
     """
     with open(filename, mode='w', encoding='utf=8') as file:
-        return js.dumps(my_obj)
+        js.dumps(my_obj)
