@@ -2,7 +2,6 @@
 """
     8-class_to_json module
 """
-to_json_string = __import__('3-to_json_string').to_json_string
 
 
 def class_to_json(obj):
@@ -14,6 +13,6 @@ def class_to_json(obj):
 
         Return: The dictionary description with simple data structure
     """
-    serialized = to_json_string(obj.__dict__)
-
-    return serialized
+    if hasattr(obj, '__dict'):
+        return (obj.__dict__.copy())
+    return obj.__dict__
