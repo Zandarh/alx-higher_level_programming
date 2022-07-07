@@ -33,5 +33,5 @@ def pascal_triangle(n):
                 another_sub_list.append(check[i] + check[i + 1])
         new_list.append(another_sub_list)
         sub_list = another_sub_list
-        
+
     return new_list
