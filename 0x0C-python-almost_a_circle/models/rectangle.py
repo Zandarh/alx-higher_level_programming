@@ -20,19 +20,26 @@ class Rectangle(Base):
                 y:
                 id:
         """
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
         super().__init__(id)
 
         @property
         def width(self):
+            """ Gets the width """
             return self.__width
 
         @width.setter
         def width(self, value):
-            self.__width = value
+            """ Sets the value argument to width """
+            if isinstance(value, int) is False:
+                raise TypeError(f"{self.__width} must be an integer")
+            elif value <= 0:
+                raise ValueError(f"{self.__width} must be > 0")
+            else:
+                self.__width = value
 
         @property
         def height(self):
@@ -40,7 +47,13 @@ class Rectangle(Base):
 
         @height.setter
         def height(self, value):
-            self.__height = value
+            """ Sets the value argument to height """
+            if isinstance(value, int) is False:
+                raise TypeError(f"{self.__height} must be an integer")
+            elif value <= 0:
+                raise ValueError(f"{self.__height} must be > 0")
+            else:
+                self.__height = value
 
         @property
         def x(self):
@@ -48,7 +61,11 @@ class Rectangle(Base):
 
         @x.setter
         def x(self, value):
-            self.__x = value
+            """ Sets the value of x """
+            if x < 0:
+                raise ValueError(f"{self.__x} must be >= 0")
+            else:
+                self.__x = value
 
         @property
         def y(self):
@@ -56,4 +73,30 @@ class Rectangle(Base):
 
         @y.setter
         def y(self, value):
-            self.__y = value
+            """ Sets the value of y """
+            if y < 0:
+                raise ValueError(f"{self.__y} must be >= 0")
+            else:
+                self.__y = value
+
+    def area(self):
+        """ Function that returns the area of the rectangle """
+        return (self.__width * self.__height)
+
+    def display(self):
+        """ prints in stdout the rectangle with character # """
+        if self.__width == 0 or self.__height == 0:
+            return ("")
+        new_list = []
+
+        for row in range(self.__height):
+            for column in range(self.__width):
+                new_list.append('#')
+            if row + 1 != self.__height:
+                new_list.append('\n')
+        return ''.join(new_list)
+
+    def __str__(self):
+        """ Gives a string representation """
+        return (f"[rectangle] ({self.id}) {self.__x}/{self.__y} - \
+             {self.__width}/{self.__height}")
