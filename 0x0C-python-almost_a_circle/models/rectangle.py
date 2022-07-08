@@ -85,16 +85,14 @@ class Rectangle(Base):
 
     def display(self):
         """ prints in stdout the rectangle with character # """
-        if self.__width == 0 or self.__height == 0:
-            return ("")
-        new_list = []
-
+        for i in range(self.__y):
+            print()
         for row in range(self.__height):
+            for j in range(self.__x):
+                print(' ', end='')
             for column in range(self.__width):
-                new_list.append('#')
-            if row + 1 != self.__height:
-                new_list.append('\n')
-        return ''.join(new_list)
+                print("#", end='')
+            print()
 
     def __str__(self):
         """ Gives a string representation """
