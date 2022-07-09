@@ -108,9 +108,10 @@ class Rectangle(Base):
             while i <= len(arg):
                 setattr(self, keylist[i], arg[i])
                 i += 1
-        # elif kwargs is not None:
-        #     for key, value in kwargs.items():
-        #         setattr(self, key, value)
+        elif kwargs is not None:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+        # incomplete, not working as should
 
     def to_dictionary(self):
         """ returns the dictionary representation of a Rectangle """

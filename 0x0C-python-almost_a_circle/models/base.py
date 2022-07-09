@@ -38,6 +38,7 @@ class Base:
         filename = cls.__name__ + '.json'
         with open(filename, 'w+') as my_file:
             my_list = []
+            # incomplete
 
     @staticmethod
     def from_json_string(json_string):
@@ -50,4 +51,5 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """ returns an instance with all attributes already set """
+        # incomplete
 
