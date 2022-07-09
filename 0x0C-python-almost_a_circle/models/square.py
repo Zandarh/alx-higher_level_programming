@@ -2,6 +2,7 @@
 """
     square module
 """
+from models.base import Base
 from models.rectangle import Rectangle
 
 
@@ -27,4 +28,22 @@ class Square(Rectangle):
 
     def __str__(self):
         """ String representation of instances """
-        return (f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}")
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
+
+    # @property
+    # def width(self):
+    #     """ Getter for size """
+    #     return super().width
+
+    # @width.setter
+    # def width(self, value):
+    #     """ Setter for size """
+    #     super(Square, self.__class__).width.fset(self, value)
+
+    def update(self, *args, **kwargs):
+        """ assigns an argument to each attribute """
+
+    def to_dictionary(self):
+        """ returns the dictionary representation of a Rectangle """
+        my_dict = {"id": self.id, "x": self.x, 'size': self.size, "y": self.y}
+        return my_dict
