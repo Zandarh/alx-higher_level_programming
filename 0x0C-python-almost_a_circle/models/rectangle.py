@@ -110,37 +110,37 @@ class Rectangle(Base):
             for arg in args:
                 if a == 0:
                     if arg is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
+                        self.__init__(self.__width, self.__height, self.__x, self.__y)
                     else:
                         self.id = arg
                 elif a == 1:
-                    self.width = arg
+                    self.__width = arg
                 elif a == 2:
-                    self.height = arg
+                    self.__height = arg
                 elif a == 3:
-                    self.x = arg
+                    self.__x = arg
                 elif a == 4:
-                    self.y = arg
+                    self.__y = arg
                 a += 1
 
         elif kwargs and len(kwargs) != 0:
             for k, v in kwargs.items():
                 if k == "id":
                     if v is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
+                        self.__init__(self.__width, self.__height, self.__x, self.__y)
                     else:
                         self.id = v
                 elif k == "width":
-                    self.width = v
+                    self.__width = v
                 elif k == "height":
-                    self.height = v
+                    self.__height = v
                 elif k == "x":
-                    self.x = v
+                    self.__x = v
                 elif k == "y":
-                    self.y = v
+                    self.__y = v
 
     def to_dictionary(self):
         """ returns the dictionary representation of a Rectangle """
-        my_dict = {"x": self.x, "y": self.y, "id": self.id,
-                   "height": self.height, "width": self.width}
+        my_dict = {"x": self.__x, "y": self.__y, "id": self.id,
+                   "height": self.__height, "width": self.__width}
         return my_dict
