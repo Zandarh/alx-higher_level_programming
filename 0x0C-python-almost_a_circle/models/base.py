@@ -37,8 +37,11 @@ class Base:
         """ writes the JSON string to a file """
         filename = cls.__name__ + '.json'
         with open(filename, 'w+') as my_file:
-            my_list = []
-            # incomplete
+            if list_objs is None:
+                my_file.write("[}")
+            else:
+                list_dicts = [o.to_dictionary() for o in list_objs]
+                my_file.write(Base.to_json_string(list_dicts))
 
     @staticmethod
     def from_json_string(json_string):
@@ -51,5 +54,10 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """ returns an instance with all attributes already set """
-        # incomplete
-
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                new = cls(1, 1)
+            else:
+                new = cls(1)
+            new.update(**dictionary)
+            return new
