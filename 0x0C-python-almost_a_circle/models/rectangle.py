@@ -20,11 +20,11 @@ class Rectangle(Base):
                 y:
                 id:
         """
+        super(Rectangle, self).__init__(id)
         self.__width = width
         self.__height = height
         self.__x = x
         self.__y = y
-        super().__init__(id)
 
         @property
         def width(self):
@@ -89,12 +89,12 @@ class Rectangle(Base):
 
     def display(self):
         """ prints in stdout the rectangle with character # """
-        for i in range(self.y):
+        for i in range(self.__y):
             print()
-        for row in range(self.height):
-            for j in range(self.x):
+        for row in range(self.__height):
+            for j in range(self.__x):
                 print(' ', end='')
-            for column in range(self.width):
+            for column in range(self.__width):
                 print("#", end='')
             print()
 
