@@ -20,10 +20,10 @@ class Rectangle(Base):
                 y:
                 id:
         """
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
 
         @property
@@ -62,6 +62,8 @@ class Rectangle(Base):
         @x.setter
         def x(self, value):
             """ Sets the value of x """
+            if type(value) != int:
+                raise TypeError("x must be an integer")
             if x < 0:
                 raise ValueError("x must be >= 0")
             else:
@@ -74,6 +76,8 @@ class Rectangle(Base):
         @y.setter
         def y(self, value):
             """ Sets the value of y """
+            if type(value) != int:
+                raise TypeError("y must be an integer")
             if y < 0:
                 raise ValueError("y must be >= 0")
             else:
@@ -81,23 +85,23 @@ class Rectangle(Base):
 
     def area(self):
         """ Function that returns the area of the rectangle """
-        return (self.__width * self.__height)
+        return (self.width * self.height)
 
     def display(self):
         """ prints in stdout the rectangle with character # """
-        for i in range(self.__y):
+        for i in range(self.y):
             print()
-        for row in range(self.__height):
-            for j in range(self.__x):
+        for row in range(self.height):
+            for j in range(self.x):
                 print(' ', end='')
-            for column in range(self.__width):
+            for column in range(self.width):
                 print("#", end='')
             print()
 
     def __str__(self):
         """ Gives a string representation """
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y}" \
-            f" - {self.__width}/{self.__height}"
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y}" \
+            f" - {self.width}/{self.height}"
 
     def update(self, *args, **kwargs):
         """ assigns an argument to each attribute """
@@ -110,7 +114,7 @@ class Rectangle(Base):
                     else:
                         self.id = arg
                 elif a == 1:
-                        self.width = arg
+                    self.width = arg
                 elif a == 2:
                     self.height = arg
                 elif a == 3:
@@ -137,6 +141,6 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """ returns the dictionary representation of a Rectangle """
-        my_dict = {"x": self.__x, "y": self.__y, "id": self.id,
-                   "height": self.__height, "width": self.__width}
+        my_dict = {"x": self.x, "y": self.y, "id": self.id,
+                   "height": self.height, "width": self.width}
         return my_dict
