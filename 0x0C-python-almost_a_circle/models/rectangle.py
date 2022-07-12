@@ -20,10 +20,10 @@ class Rectangle(Base):
                 y:
                 id:
         """
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
         super().__init__(id)
 
         @property
@@ -100,8 +100,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """ Gives a string representation """
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y}" \
-            f" - {self.width}/{self.height}"
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y}" \
+            f" - {self.__width}/{self.__height}"
 
     def update(self, *args, **kwargs):
         """ assigns an argument to each attribute """
