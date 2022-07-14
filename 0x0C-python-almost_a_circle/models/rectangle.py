@@ -84,19 +84,19 @@ class Rectangle(Base):
 
     def display(self):
         """ prints in stdout the rectangle with character # """
-        for i in range(self.__y):
+        for i in range(self.y):
             print()
-        for row in range(self.__height):
-            for j in range(self.__x):
+        for row in range(self.height):
+            for j in range(self.x):
                 print(' ', end='')
-            for column in range(self.__width):
+            for column in range(self.width):
                 print("#", end='')
             print()
 
     def __str__(self):
         """ Gives a string representation """
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y}" \
-            f" - {self.__width}/{self.__height}"
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y}" \
+            f" - {self.width}/{self.height}"
 
     def update(self, *args, **kwargs):
         """ assigns an argument to each attribute """
@@ -105,7 +105,7 @@ class Rectangle(Base):
             for arg in args:
                 if a == 0:
                     if arg is None:
-                        self.__init__(self.__width, self.__height, self.__x, self.__y)
+                        self.__init__(self.width, self.height, self.x, self.y)
                     else:
                         self.id = arg
                 elif a == 1:
@@ -122,20 +122,20 @@ class Rectangle(Base):
             for k, v in kwargs.items():
                 if k == "id":
                     if v is None:
-                        self.__init__(self.__width, self.__height, self.__x, self.__y)
+                        self.__init__(self.width, self.height, self.x, self.y)
                     else:
                         self.id = v
                 elif k == "width":
-                    self.__width = v
+                    self.width = v
                 elif k == "height":
-                    self.__height = v
+                    self.height = v
                 elif k == "x":
-                    self.__x = v
+                    self.x = v
                 elif k == "y":
-                    self.__y = v
+                    self.y = v
 
     def to_dictionary(self):
         """ returns the dictionary representation of a Rectangle """
-        my_dict = {"x": self.__x, "y": self.__y, "id": self.id,
-                   "height": self.__height, "width": self.__width}
+        my_dict = {"x": self.x, "y": self.y, "id": self.id,
+                   "height": self.height, "width": self.width}
         return my_dict
