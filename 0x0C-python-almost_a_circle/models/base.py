@@ -82,39 +82,44 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        """Write the CSV serialization of a list of objects to a file.
+        Args:
+            list_objs (list): A list of inherited Base instances.
         """
-            serializes in csv
-            Args:
-                list_objs: list of objects
-        """
-        # create and write to the csv file
-        with open(cls.__name__ + '.csv', 'w', encoding='utf-8') as file:
-            field_name = list()
-
-            # get list of object keys
-            field_name = (list_objs[0].to_dictionary()).keys()
-            write_csv = csv.DictWriter(file, fieldnames=field_name)
-
-            write_csv.writeheader()  # display the keys on the first line
-            for dum in list_objs:
-                write_csv.writerow(dum.to_dictionary())
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="") as csvfile:
+            if list_objs is None or list_objs == []:
+                csvfile.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
+        """Return a list of classes instantiated from a CSV file.
+        Reads from `<cls.__name__>.csv`.
+        Returns:
+            If the file does not exist - an empty list.
+            Otherwise - a list of instantiated classes.
         """
-            returns deserialized csv content
-        """
-        with open(cls.__name__ + '.csv', encoding='utf-8') as file:
-            new_l = []
-            reader_csv = csv.DictReader(file)
-
-            new_dic = dict()
-            for content in reader_csv:
-                for key, value in content.items():
-                    new_dic[key] = int(value)
-                new_l.append(cls.create(**new_dic))
-
-            return 
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", newline="") as csvfile:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
+                list_dicts = [dict([k, int(v)] for k, v in d.items())
+                              for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
+            return []
 
     @staticmethod
     def draw(list_rectangles, list_squares):
