@@ -1,0 +1,4 @@
+-- updates the score of Bob to 10
+UPDATE `second_table
+SET `score` = `0
+WHERE `name` = "Bob";
