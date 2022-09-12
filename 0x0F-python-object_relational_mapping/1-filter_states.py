@@ -1,23 +1,26 @@
 #!/usr/bin/python3
-""" lists all states with a name starting \
-    with N (upper N) from the database hbtn_0e_0_usa
+import MySQLdb
+import sys
+"""script that lists all states with a name starting with\
+N (upper N) from the database hbtn_0e_0_usa
 """
 
-import sys
-import MySQLdb
 
-if __name__ == "__main__":
-    if (sys.argv) < 4:
-        print("Usage: ./<script_name>.py [username] [password] [database]")
-        sys.exit()
-
-    db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3])
+if __name__ == '__main__':
+    args = sys.argv
+    if len(args) != 4:
+        print("Usage: {} username password database_name".format(args[0]))
+        exit(1)
+    username = args[1]
+    password = args[2]
+    data = args[3]
+    db = MySQLdb.connect(host='localhost', user=username,
+                         passwd=password, db=data, port=3306)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE states.name\
-                LIKE 'N%' ORDER BY states.id;")
-    the_rows = cur.fetchall()
-    for rows in the_rows:
-        print(rows)
+    cur.execute('SELECT * FROM states WHERE states.name\
+                LIKE "N%" ORDER BY states.id;')
+    rows = cur.fetchall()
+    [print(row) for row in rows]
     cur.close()
     db.close()
+    
