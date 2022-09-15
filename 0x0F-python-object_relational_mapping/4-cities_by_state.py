@@ -14,4 +14,4 @@ if __name__ == "__main__":
                 INNER JOIN `states` as `s` \
                    ON `c`.`state_id` = `s`.`id` \
                 ORDER BY `c`.`id`")
-    [print(city) for city in c.fetchall()]
+    [print(city) for city in cur.fetchall()]
