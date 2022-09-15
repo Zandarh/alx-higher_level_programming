@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""adds the State object """
+"""adds the State object"""
 
 import sys
 from model_state import Base, State
@@ -13,9 +13,8 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    new_state = State(name ='Louisiana')
+    new_state = State(name='Louisiana')
     session.add(new_state)
     new_instance = session.query(State).filter_by(name='Louisiana').first()
     print(new_instance.id)
     session.commit()
-    
