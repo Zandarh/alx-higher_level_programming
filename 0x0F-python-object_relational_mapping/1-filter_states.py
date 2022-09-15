@@ -11,13 +11,7 @@ if __name__ == "__main__":
         print("Usage: ./<script_name>.py [username] [password] [database]")
         sys.exit()
 
-    db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3])
+    db = MySQLdb.connect(user=sys.argv[1], asswd=sys.argv[2], db=sys.argv[3])
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE states.name\
-                LIKE 'N%' ORDER BY states.id;")
-    the_rows = cur.fetchall()
-    for rows in the_rows:
-        print(rows)
-    cur.close()
-    db.close()
+    cur.execute("SELECT * FROM `states` ORDER BY `id`")
+    [print(state) for state in cur.fetchall() if state[1][0] == "N"]
