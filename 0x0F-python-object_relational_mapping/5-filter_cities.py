@@ -14,19 +14,10 @@ if __name__ == "__main__":
     db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
                          passwd=sys.argv[2], db=sys.argv[3])
     cur = db.cursor()
-    cur.execute("SELECT b.name "
-                "FROM states a "
-                "LEFT JOIN cities b "
-                "ON a.id = b.state_id "
-                "WHERE a.name = %s "
-                "ORDER BY b.id ASC",
-                (sys.argv[4], ))
-    the_rows = cur.fetchall()
-    query_len = len(the_rows)
-    for i in range(the_rows):
-        if i < query_len - 1:
-            print(the_rows[i][0], end=', ')
-        else:
-            print(the_rows[i][0])
+    cur.execute("SELECT * FROM `cities` as `c` \
+                INNER JOIN `states` as `s` \
+                   ON `c`.`state_id` = `s`.`id` \
+                ORDER BY `c`.`id`")
+    print(", ".join([ct[2] for ct in c.fetchall() if ct[4] == sys.argv[4]]))
     cur.close()
     db.close()
