@@ -18,4 +18,4 @@ if __name__ == "__main__":
     try:
         print(instance[0].id)
     except IndexError:
-        print("Mot found")
+        print("Not found")
