@@ -6,9 +6,9 @@
 
 
 if __name__ == '__main__':
-    import urlib.request
+    import urllib.request
 
-    with urlib,request.urlopen('https://alx-intranet.hbtn.io/status') as result:
+    with urllib,request.urlopen('https://alx-intranet.hbtn.io/status') as result:
         content = result.read()
         print("Body response")
         print ("\t- typr: {}".format(type(content)))
